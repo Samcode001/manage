@@ -1,0 +1,28 @@
+const navToggle = document.querySelector('.mobile-nav-toggle');
+const primaryHeader = document.querySelector('.primary-header');
+const primaryNav = document.querySelector('.primary-navigation');
+
+navToggle.addEventListener('click', () => {
+    // primaryNav.classList.toggle("opened"); we can do it also by just writing the opened class in css
+
+    primaryNav.hasAttribute('data-visible')
+        ? navToggle.setAttribute('aria-expanded', false)
+        : navToggle.setAttribute('aria-expanded', true);
+
+    primaryNav.toggleAttribute('data-visible');
+    primaryHeader.toggleAttribute('data-overlay');
+
+})
+
+const slider = new A11YSlider(document.querySelector('.slider'), {
+    adaptiveHeight: false,
+    dots: true,
+    arrows:false,
+    centerMode: true,
+    responsive: {
+        480: {
+          dots: false, // dots enabled 480px
+          arrows:true
+        }
+      }
+});
